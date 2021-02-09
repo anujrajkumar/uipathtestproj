@@ -7,13 +7,20 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-default
+  name: Hosted Windows 2019 with VS2019
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+  - stage: UiPath
+    displayName: UiPath Testing
+    jobs:
+    - job: UiPath
+      steps:
+      - checkout: self
+      - task: UiPathTest@2
+        inputs:
+          testTarget: 'TestProject'
+          orchestratorConnection: 'UiPathServiceConnection'
+          testProjectPath: '$(Build.SourcesDirectory)'
+          environment: 'env1'
+          folderName: 'Default'
