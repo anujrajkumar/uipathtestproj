@@ -17,10 +17,8 @@ stages:
     - job: UiPath
       steps:
       - checkout: self
-      - task: UiPathTest@2
+      - task: UiPathDeploy@2
         inputs:
-          testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Orchestrator'
-          testProjectPath: '$(Build.SourcesDirectory)'
-          #environment: 'env1'
+          packagesPath: '$(Build.workingDirectory)'
           folderName: 'Default'
