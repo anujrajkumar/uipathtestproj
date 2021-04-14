@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  default
+ vmImage: Hosted Windows 2019 with VS2019
 
 
 stages:
