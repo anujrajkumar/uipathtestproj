@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  name: Hosted Windows 2019 with VS2019
+
+
+stages:
+  - stage: UiPath
+    displayName: UiPath Testing
+    jobs:
+    - job: UiPath
+      steps:
+      - checkout: self
+      - task: UiPathTest@2
+        inputs:
+          testTarget: 'TestProject'
+          orchestratorConnection: 'UiPathServiceConnection'
+          testProjectPath: '$(Build.SourcesDirectory)'
+          environment: 'env1'
+          folderName: 'Default'
