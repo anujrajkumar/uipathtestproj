@@ -20,7 +20,7 @@ stages:
       - task: UiPathTest@2
         inputs:
           testTarget: 'TestProject'
-          orchestratorConnection: 'UiPathServiceConnection'
+          orchestratorConnection: 'UiPath Orchestrator'
           testProjectPath: '$(Build.SourcesDirectory)'
           environment: 'env1'
           folderName: 'Default'
