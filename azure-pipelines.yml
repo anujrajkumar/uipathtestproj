@@ -22,5 +22,5 @@ stages:
           testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Orchestrator'
           testProjectPath: '$(Build.SourcesDirectory)'
-          environment: 'env1'
+          #environment: 'env1'
           folderName: 'Default'
