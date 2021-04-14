@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
- name: Hosted Windows 2019 with VS2019
+  vmImage: windows-latest
 
 
 stages:
@@ -17,8 +17,10 @@ stages:
     - job: UiPath
       steps:
       - checkout: self
-      - task: UiPathDeploy@2
+      - task: UiPathTest@2
         inputs:
-          orchestratorConnection: 'UiPath Orchestrator'
-          packagesPath: '$(Build.workingDirectory)'
+          testTarget: 'TestProject'
+          orchestratorConnection: 'UiPath Orchestrator '
+          testProjectPath: '$(Build.SourcesDirectory)'
+          environment: 'env1'
           folderName: 'Default'
