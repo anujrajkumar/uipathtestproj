@@ -23,5 +23,6 @@ stages:
           orchestratorConnection: 'UiPath Connection'
           testProjectPath: '$(Build.SourcesDirectory)'
           folderName: 'shared'
+          testReportDestination: '$(Pipeline.Workspace)\drop'
       
     
