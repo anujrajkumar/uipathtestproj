@@ -32,3 +32,4 @@ stages:
           testProjectPath: '$(Build.SourcesDirectory)\project.json'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
+          continueOnError: true
