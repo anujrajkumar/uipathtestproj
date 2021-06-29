@@ -27,9 +27,9 @@ stages:
           outputPath: '$(Build.ArtifactStagingDirectory)\Output'
       - task: UiPathTest@2
         inputs:
-          testTarget: 'TestProject'
+          testTarget: 'TestSet'
           orchestratorConnection: 'UiPath Connection'
-          testProjectPath: 'project.json'
+          testProjectPath: 'TestCase3.xaml'
           environment: 'DefaultTenant'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
