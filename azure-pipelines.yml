@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- none
 
 pool:
   name: Hosted Windows 2019 with VS2019
@@ -29,7 +29,7 @@ stages:
         inputs:
           testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Connection'
-          testProjectPath: '$(Build.SourcesDirectory)\project.json'
+          testProjectPath: '\project.json'
           environment: 'DefaultTenant'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
