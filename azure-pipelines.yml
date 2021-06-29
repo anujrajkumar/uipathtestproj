@@ -29,7 +29,7 @@ stages:
         inputs:
           testTarget: 'TestSet'
           orchestratorConnection: 'UiPath Connection'
-          testProjectPath: 'TestCase3.xaml'
+          testProjectPath: '$(Build.SourcesDirectory)'
           environment: 'DefaultTenant'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
