@@ -19,6 +19,12 @@ stages:
       steps:
       - checkout: self
       
+      - task: UiPathPack@2
+        inputs:
+          versionType: 'AutoVersion'
+          projectJsonPath: '$(Build.SourcesDirectory)/project.json'
+          orchestratorConnection: 'UiPath Connection'
+          outputPath: '$(Build.ArtifactStagingDirectory)\Output'
       - task: UiPathTest@2
         inputs:
           testTarget: 'TestProject'
