@@ -7,22 +7,22 @@ trigger:
 - master
 
 pool:
-  vmImage: windows-latest
+  name: Hosted Windows 2019 with VS2019
 
 
 stages:
   - stage: UiPath
+
     displayName: UiPath Testing
     jobs:
     - job: UiPath
       steps:
       - checkout: self
+      
       - task: UiPathTest@2
         inputs:
           testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Connection'
           testProjectPath: '$(Build.SourcesDirectory)'
           folderName: 'shared'
-          testReportDestination: '$(Pipeline.Workspace)\drop'
-      
-    
+          testReportDestination: '$(Build.ArtifactStagingDirectory)'
