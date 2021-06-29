@@ -22,13 +22,13 @@ stages:
       - task: UiPathPack@2
         inputs:
           versionType: 'AutoVersion'
-          projectJsonPath: '$(Build.SourcesDirectory)/project.json'
+          projectJsonPath: '$(Build.SourcesDirectory)\project.json'
           orchestratorConnection: 'UiPath Connection'
           outputPath: '$(Build.ArtifactStagingDirectory)\Output'
       - task: UiPathTest@2
         inputs:
           testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Connection'
-          testProjectPath: '$(Build.ArtifactStagingDirectory)\Output'
+          testProjectPath: '$(Build.SourcesDirectory)\project.json'
           folderName: 'shared'
-          testReportDestination: '$(Build.ArtifactStagingDirectory)'
+          testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
