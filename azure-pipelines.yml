@@ -23,6 +23,6 @@ stages:
         inputs:
           testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Connection'
-          testProjectPath: '$(Build.SourcesDirectory)/Main.xaml'
+          testProjectPath: '$(Build.SourcesDirectory)/project.json'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)'
