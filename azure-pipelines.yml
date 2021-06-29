@@ -30,7 +30,6 @@ stages:
           testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Connection'
           testProjectPath: '$(Build.SourcesDirectory)'
-          environment: 'DefaultTenant'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
           continueOnError: true
