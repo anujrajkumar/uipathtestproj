@@ -27,7 +27,7 @@ stages:
       #     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
       - task: UiPathTest@2
         inputs:
-          testTarget: 'TestSet'
+          testTarget: 'TestProject'
           orchestratorConnection: 'UiPath Connection'
           testProjectPath: '$(Build.SourcesDirectory)\project.json'
           environment: 'DefaultTenant'
