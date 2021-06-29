@@ -19,17 +19,17 @@ stages:
       steps:
       - checkout: self
       
-      - task: UiPathPack@2
-        inputs:
-          versionType: 'AutoVersion'
-          projectJsonPath: '$(Build.SourcesDirectory)\project.json'
-          orchestratorConnection: 'UiPath Connection'
-          outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+      # - task: UiPathPack@2
+      #   inputs:
+      #     versionType: 'AutoVersion'
+      #     projectJsonPath: '$(Build.SourcesDirectory)\project.json'
+      #     orchestratorConnection: 'UiPath Connection'
+      #     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
       - task: UiPathTest@2
         inputs:
           testTarget: 'TestSet'
           orchestratorConnection: 'UiPath Connection'
-          testProjectPath: '$(Build.SourcesDirectory)'
+          testProjectPath: '$(Build.SourcesDirectory)\project.json'
           environment: 'DefaultTenant'
           folderName: 'shared'
           testReportDestination: '$(Build.ArtifactStagingDirectory)\Output'
